@@ -1,19 +1,21 @@
 <div class="top-bar">
   <div class="row">
     <div class="top-bar-left">
-      selected title
+      <ul class="menu">
+        <li class="brand-title">
+          <a href="#">Udashboard</a>
+        </li>
+      </ul>
+    </div>
+    <div class="top-bar-right">
+      <ul class="menu">
+        <li>{{link-to 'Metrics' 'dashboard.metrics'}}</li>
+        <li>{{link-to 'Issues' 'dashboard.issues'}}</li>
+        <li>{{link-to 'Locations' 'dashboard.locations'}}</li>
+      </ul>
     </div>
   </div>
 </div>
-<div class="row">
-  <div class="sidebar columns small-2">
-    <ul class="menu vertical">
-      <li>{{link-to 'Metrics' 'dashboard.metrics'}}</li>
-      <li>{{link-to 'Issues' 'dashboard.issues'}}</li>
-      <li>{{link-to 'Locations' 'dashboard.locations'}}</li>
-    </ul>
-  </div>
-  <div class="main columns small-10">
-    {{outlet}}
-  </div>
+<div class="main row">
+  {{outlet}}
 </div>

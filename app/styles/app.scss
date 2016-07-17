@@ -21,3 +21,18 @@
     }
   }
 }
+
+.issue-table {
+  font-size: 0.8rem;
+
+  .ember-light-table {
+    .lt-column {
+      font-weight: 200;;
+      padding: 0.5rem;
+    }
+    .lt-cell {
+      padding: 0.5rem;
+    }
+  }
+
+}

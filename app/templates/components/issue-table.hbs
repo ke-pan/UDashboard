@@ -1,0 +1,16 @@
+{{#light-table table height='65vh' as |t|}}
+
+  {{t.head
+    onColumnClick=(action 'onColumnClick')
+    iconAscending='fa fa-sort-asc'
+    iconDescending='fa fa-sort-desc'
+    fixed=true
+  }}
+
+  {{#t.body
+    canSelect=false
+    as |body|
+  }}
+  {{/t.body}}
+
+{{/light-table}}
