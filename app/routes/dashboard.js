@@ -7,5 +7,8 @@ export default Ember.Route.extend({
       transition.abort();
       this.transitionTo('dashboard.metrics');
     }
+  },
+  model() {
+    return this.store.findAll('issue');
   }
 });
