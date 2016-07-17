@@ -1,9 +1,23 @@
-a {
-  color: #2199e8;
-}
-.sidebar {
-  .active {
-    background-color: #2199e8;
-    color: white;
+@import 'foundation-settings';
+@import 'foundation';
+
+@include foundation-global-styles;
+@include foundation-typography;
+@include foundation-grid;
+@include foundation-top-bar;
+@include foundation-menu;
+
+.top-bar {
+  .brand-title {
+    a {
+      color: $white;
+      font-weight: bold;
+    }
+  }
+  .top-bar-right {
+    .active {
+      background-color: $blue;
+      color: $white;
+    }
   }
 }
