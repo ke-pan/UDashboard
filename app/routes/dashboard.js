@@ -1,4 +1,5 @@
 import Ember from 'ember';
+import moment from 'moment';
 
 export default Ember.Route.extend({
   beforeModel(transition) {
@@ -7,8 +8,5 @@ export default Ember.Route.extend({
       transition.abort();
       this.transitionTo('dashboard.metrics');
     }
-  },
-  model() {
-    return this.store.findAll('issue');
   }
 });

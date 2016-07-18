@@ -1,8 +1,21 @@
 <h3>metrics</h3>
+
+<div class="period text-center">
+  <button class="hollow button" {{action "goPeriodBack"}}>
+    <i class="fa fa-angle-left"></i>
+  </button>
+  <span class="period-title">
+    {{period-in-words period}}
+  </span>
+  <button class="hollow button" {{action "goPeriodNext"}}>
+    <i class="fa fa-angle-right"></i>
+  </button>
+</div>
+
+<div class="issues chart">
+  {{issue-chart issues=issues period=period}}
+</div>
+
 <p>
   number of open issues: {{openingIssues.length}}
 </p>
-
-<div class="issues chart">
-  {{issue-chart issues=issues period="2016-07"}}
-</div>

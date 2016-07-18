@@ -1,8 +1,13 @@
 import Ember from 'ember';
 
 export default Ember.Route.extend({
-  setupController: function(controller, model) {
-    this._super(controller, model);
-    controller.set('issues', this.modelFor('dashboard'));
+  queryParams: {
+    period: {
+      refreshModel: true
+    }
+  },
+  model(params) {
+    return this.store.query('issue', { filter: { period: params.period } });
+    // return this.store.findAll('issue');
   }
 });
