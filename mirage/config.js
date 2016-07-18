@@ -6,8 +6,8 @@ export default function() {
       [
         {
           id: '1',
-          closedAt: '2016-7-14 08:00:00',
-          createdAt: '2016-7-13 08:00:00',
+          closedAt: '',
+          createdAt: '2016-7-14 08:00:00',
           customer: {
             id: '1',
             name: 'John Doe',
@@ -23,8 +23,8 @@ export default function() {
         },
         {
           id: '2',
-          closedAt: '2016-6-24 08:40:10',
-          createdAt: '2016-6-23 08:03:02',
+          closedAt: '2016-7-24 08:40:10',
+          createdAt: '2016-7-23 08:03:02',
           customer: {
             id: '2',
             name: 'Smith Doe',

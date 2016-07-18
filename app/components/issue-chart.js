@@ -38,16 +38,19 @@ export default Ember.Component.extend({
         categories: this.get('seriesData.labels')
       },
       yAxis: {
+        min: 1,
         title: {
           text: 'Number of reported issues'
         }
       }
     }
   }),
-  chartData: [
-    {
-      name: 'reported issues',
-      data: [7, 6, 9, 14, 18, 21, 25, 26, 23, 18, 13, 9]
-    }
-  ]
+  chartData: computed('seriesData', function() {
+    return [
+      {
+        name: 'reported issues',
+        data: this.get('seriesData.series')
+      }
+    ]
+  })
 });
