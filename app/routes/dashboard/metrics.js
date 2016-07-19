@@ -7,7 +7,7 @@ export default Ember.Route.extend({
     }
   },
   model(params) {
-    return this.store.query('issue', { filter: { period: params.period } });
+    return this.store.query('issue', { period: params.period });
     // return this.store.findAll('issue');
   }
 });

@@ -43,7 +43,7 @@ export default Ember.Component.extend({
           text: 'Number of reported issues'
         }
       }
-    }
+    };
   }),
   chartData: computed('seriesData', function() {
     return [
@@ -51,6 +51,6 @@ export default Ember.Component.extend({
         name: 'reported issues',
         data: this.get('seriesData.series')
       }
-    ]
+    ];
   })
 });
