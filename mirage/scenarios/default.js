@@ -1,5 +1,7 @@
 export default function(server) {
-  let employee = server.create('employee');
-  let customer = server.create('customer');
-  server.createList('issue', 20, { employee, customer });
+  for (var i = 0; i < 20; i++) {
+    let employee = server.create('employee');
+    let customer = server.create('customer');
+    server.createList('issue', 40, { employee, customer } );
+  }
 }
