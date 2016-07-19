@@ -39,6 +39,7 @@ export default Ember.Component.extend({
       },
       yAxis: {
         min: 1,
+        minTickInterval: 1,
         title: {
           text: 'Number of reported issues'
         }
