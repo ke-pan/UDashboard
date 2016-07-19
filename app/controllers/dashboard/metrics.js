@@ -12,11 +12,11 @@ export default Ember.Controller.extend({
   }),
   actions: {
     goPeriodBack() {
-      const previousPeriod = moment(this.get('period')).subtract(1, "month").format("YYYY-MM");
+      const previousPeriod = moment(this.get('period'), 'YYYY-MM').subtract(1, "month").format("YYYY-MM");
       this.set('period', previousPeriod);
     },
     goPeriodNext() {
-      const nextPeriod = moment(this.get('period')).add(1, "month").format("YYYY-MM");
+      const nextPeriod = moment(this.get('period'), 'YYYY-MM').add(1, "month").format("YYYY-MM");
       this.set('period', nextPeriod);
     }
   }
