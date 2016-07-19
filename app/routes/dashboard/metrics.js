@@ -7,7 +7,9 @@ export default Ember.Route.extend({
     }
   },
   model(params) {
-    return this.store.query('issue', { period: params.period });
-    // return this.store.findAll('issue');
+    return Ember.RSVP.hash({
+      issues: this.store.query('issue', { period: params.period }),
+      customers: this.store.findAll('customer')
+    });
   }
 });

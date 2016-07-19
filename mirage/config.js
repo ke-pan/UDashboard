@@ -5,4 +5,6 @@ export default function() {
     console.log(request.queryParams.period);
     return schema.issues.all();
   });
+
+  this.get('/customers');
 }

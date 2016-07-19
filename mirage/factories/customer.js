@@ -6,5 +6,8 @@ export default Factory.extend({
   },
   email() {
     return faker.internet.email();
+  },
+  createdAt() {
+    return faker.date.between("2015-08-01", "2016-07-21");
   }
 });
