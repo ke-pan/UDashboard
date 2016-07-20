@@ -24,6 +24,7 @@ export default Ember.Component.extend({
       series.push(issuesInDate);
       labels.push(day);
     }
+    // console.log('series', series);
     return {labels, series};
   }),
   chartOptions: computed('seriesData', function() {

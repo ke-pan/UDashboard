@@ -3,7 +3,7 @@ import Ember from 'ember';
 export default Ember.Route.extend({
   queryParams: {
     period: {
-      reload: true
+      refreshModel: true
     }
   },
   model(params) {
