@@ -11,7 +11,7 @@ export default BaseSerializer.extend({
       json = _.sortBy(json, request.queryParams.sort);
     }
     if (request.queryParams.dir === 'desc') {
-      json = _.reverse(json);
+      json = json.reverse();
     }
     if (request.queryParams.page && request.queryParams.per) {
       json = _.slice(json, (request.queryParams.page - 1) * request.queryParams.per, request.queryParams.page * request.queryParams.per);

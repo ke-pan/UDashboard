@@ -14,6 +14,9 @@ export default Ember.Controller.extend({
     },
     increamentPage(page) {
       this.set('page', this.get('page') + 1);
+      this.send('getMoreIssues', this.get('page'), this.get('per'), this.get('sort'), this.get('dir'));
+    },
+    getMoreIssues(page, per, sort, dir) {
       return true;
     }
   }

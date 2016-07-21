@@ -5,12 +5,6 @@ const { computed } = Ember;
 
 export default Ember.Component.extend({
   classNames: ['issue-table'],
-  sortedIssues: computed.sort('issues', 'sortProperties'),
-  dir: 'desc',
-  sort: 'createdAt',
-  sortProperties: computed('dir', 'sort', function() {
-    return [`${this.get('sort')}:${this.get('dir')}`];
-  }),
   table: null,
 
   columns: computed(function() {
@@ -40,17 +34,20 @@ export default Ember.Component.extend({
 
   init() {
     this._super(...arguments);
-    this.set('table', new Table(this.get('columns'), this.get('sortedIssues')));
+    this.set('table', new Table(this.get('columns'), this.get('issues')));
+  },
+
+  didReceiveAttrs() {
+    this._super(...arguments);
+    this.get('table').setRows(this.get('issues'));
   },
 
   actions: {
     onColumnClick(column) {
       if (column.sorted) {
-        this.setProperties({
-          dir: column.ascending ? 'asc' : 'desc',
-          sort: column.get('valuePath')
-        });
-        this.get('table').setRows(this.get('sortedIssues'));
+        let dir = column.ascending ? 'asc' : 'desc';
+        let sort = column.get('valuePath');
+        this.get('setSort')(sort, dir);
       }
     }
   }

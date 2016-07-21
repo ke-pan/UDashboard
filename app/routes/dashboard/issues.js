@@ -13,8 +13,8 @@ export default Ember.Route.extend({
     return this.store.query('issue', {page: params.page, per: params.per, sort: params.sort, dir: params.dir});
   },
   actions: {
-    increamentPage() {
-      model.pushObjects(this.store.query('issue', {page: params.page, per: params.per, sort: params.sort, dir: params.dir}));
+    getMoreIssues(page, per, sort, dir) {
+      this.get("model").pushObjects(this.store.query('issue', {page, per, sort, dir}));
     }
   }
 });
