@@ -1,7 +1,20 @@
 import Ember from 'ember';
 
 export default Ember.Route.extend({
-  model() {
-    return this.store.findAll('issue');
+  queryParams: {
+    sort: {
+      refreshModel: true
+    },
+    dir: {
+      refreshModel: true
+    }
+  },
+  model(params) {
+    return this.store.query('issue', {page: params.page, per: params.per, sort: params.sort, dir: params.dir});
+  },
+  actions: {
+    increamentPage() {
+      model.pushObjects(this.store.query('issue', {page: params.page, per: params.per, sort: params.sort, dir: params.dir}));
+    }
   }
 });
