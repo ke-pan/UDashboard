@@ -1,5 +1,6 @@
 import Ember from 'ember';
 import Table from 'ember-light-table';
+import moment from 'moment';
 
 const { computed } = Ember;
 
@@ -10,7 +11,7 @@ export default Ember.Component.extend({
   columns: computed(function() {
     return [{
       label: 'Submission Time',
-      valuePath: 'createdAt'
+      valuePath: 'createdTime'
     }, {
       label: 'Customer Name',
       valuePath: 'customer.name'
@@ -28,7 +29,7 @@ export default Ember.Component.extend({
       valuePath: 'status'
     }, {
       label: 'Close Time',
-      valuePath: 'closedAt'
+      valuePath: 'closedTime'
     }];
   }),
 
@@ -47,6 +48,8 @@ export default Ember.Component.extend({
       if (column.sorted) {
         let dir = column.ascending ? 'asc' : 'desc';
         let sort = column.get('valuePath');
+        if (sort === 'closedTime') { sort = 'closedAt'; }
+        if (sort === 'createdTime') { sort = 'createdAt'; }
         this.get('setSort')(sort, dir);
       }
     }
