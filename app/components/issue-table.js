@@ -17,7 +17,8 @@ export default Ember.Component.extend({
       valuePath: 'customer.name'
     }, {
       label: 'Customer Email',
-      valuePath: 'customer.email'
+      valuePath: 'customer.email',
+      width: '220em'
     }, {
       label: 'Description',
       valuePath: 'description'
