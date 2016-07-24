@@ -8,6 +8,10 @@ module.exports = function(defaults) {
       includePaths: [
         'bower_components/foundation-sites/scss'
       ]
+    },
+    emberHighCharts: {
+      includeHighCharts: true,
+      includeModules: ['map']
     }
   });
 
@@ -23,6 +27,8 @@ module.exports = function(defaults) {
   // modules that you would like to import into your application
   // please specify an object with the list of modules as keys
   // along with the exports of each module as its value.
+
+  app.import('bower_components/proj4/dist/proj4.js');
 
   return app.toTree();
 };
