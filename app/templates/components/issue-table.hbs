@@ -1,4 +1,4 @@
-{{#light-table table height='70vh' as |t|}}
+{{#light-table table height='65vh' as |t|}}
 
   {{t.head
     onColumnClick=(action 'onColumnClick')
@@ -9,6 +9,7 @@
 
   {{#t.body
     canSelect=false
+    onScrolledToBottom=(action 'onScrolledToBottom')
     as |body|
   }}
   {{/t.body}}
