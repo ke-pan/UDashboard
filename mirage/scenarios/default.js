@@ -4,4 +4,6 @@ export default function(server) {
     let customer = server.create('customer');
     server.createList('issue', 2, { employee, customer } );
   }
+
+  server.loadFixtures('locations');
 }

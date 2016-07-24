@@ -6,4 +6,5 @@ export default function() {
   });
 
   this.get('/customers');
+  this.get('/locations');
 }

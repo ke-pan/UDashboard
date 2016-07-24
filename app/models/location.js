@@ -3,7 +3,8 @@ import attr from 'ember-data/attr';
 // import { belongsTo, hasMany } from 'ember-data/relationships';
 
 export default Model.extend({
-  latitude: attr('string'),
-  longitude: attr('string'),
-  name: attr('string')
+  lat: attr('string'),
+  lon: attr('string'),
+  name: attr('string'),
+  employeeCount: attr('number')
 });
