@@ -18,8 +18,8 @@ export default BaseSerializer.extend({
     }
     if (request.queryParams.period) {
       json = json.filter(function(issue) {
-        return moment(issue.createdAt).format("YYYY-MM") == request.queryParams.period;
-      })
+        return moment(issue.createdAt).format("YYYY-MM") === request.queryParams.period;
+      });
     }
     return json;
   }

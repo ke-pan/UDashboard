@@ -1,7 +1,7 @@
 export default function() {
   this.namespace = 'api';
 
-  this.get('/issues', function(schema, request) {
+  this.get('/issues', function(schema) {
     return schema.issues.all();
   });
 
