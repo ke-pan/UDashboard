@@ -5,10 +5,10 @@ require 'faker'
 
 issues = (1..100).map do
   status = %w(opening closed).sample
-  submition_at = Faker::Date.between(2.days.ago, Date.today)
-  closed_at = status == 'opening' ? '' : Faker::Date.between(submition_at, Date.today)
+  submission_at = Faker::Time.between(7.days.ago, Date.today)
+  closed_at = status == 'opening' ? '' : Faker::Date.between(submission_at, Date.today)
   {
-    submitionAt: submition_at,
+    submissionAt: submission_at,
     customerName: Faker::Name.name,
     customerEmail: Faker::Internet.email,
     description: Faker::Lorem.sentence(1),
