@@ -6,7 +6,7 @@ require 'faker'
 issues = (1..100).map do
   status = %w(opening closed).sample
   submission_at = Faker::Time.between(7.days.ago, Date.today)
-  closed_at = status == 'opening' ? '' : Faker::Date.between(submission_at, Date.today)
+  closed_at = status == 'opening' ? '' : Faker::Time.between(submission_at, Date.today)
   {
     submissionAt: submission_at,
     customerName: Faker::Name.name,
