@@ -26,5 +26,10 @@ export default Ember.Controller.extend({
         };
       })
     );
-  })
+  }),
+  actions: {
+    setSort(sort) {
+      this.set('sort', sort);
+    }
+  }
 });

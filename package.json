@@ -44,6 +44,7 @@
     "ember-load-initializers": "^0.5.1",
     "ember-moment": "7.0.0-beta.3",
     "ember-resolver": "^2.0.3",
+    "ember-truth-helpers": "1.2.0",
     "highcharts": "4.2.5",
     "loader.js": "^4.0.1",
     "lodash": "^4.13.1"
