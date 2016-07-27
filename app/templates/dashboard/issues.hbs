@@ -1,6 +1,28 @@
 <h3 class="text-center">issues</h3>
 
-{{#each model as |issue|}}
-  issue.submittionAt
-{{/each}}
-<!-- {{issue-table}} -->
+<table class="table issue-table">
+  <thead>
+    <tr>
+      <td> submission time </td>
+      <td> customer name </td>
+      <td> customer email </td>
+      <td> description </td>
+      <td> status </td>
+      <td> close time </td>
+      <td> employee name </td>
+    </tr>
+  </thead>
+  <tbody>
+    {{#each issues as |issue|}}
+      <tr>
+        <td>{{issue.submissionTime}}</td>
+        <td>{{issue.customerName}}</td>
+        <td>{{issue.customerEmail}}</td>
+        <td>{{issue.description}}</td>
+        <td>{{issue.status}}</td>
+        <td>{{issue.closedTime}}</td>
+        <td>{{issue.employeeName}}</td>
+      </tr>
+    {{/each}}
+  </tbody>
+</table>
