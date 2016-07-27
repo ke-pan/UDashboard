@@ -2,14 +2,6 @@ import Ember from 'ember';
 import mapData from '../data/gb-all';
 
 export default Ember.Component.extend({
-  locationData: Ember.computed.map('locations', function(loc) {
-    return {
-      employeeCount: loc.get('employeeCount'),
-      name: loc.get('name'),
-      lat: loc.get('lat'),
-      lon: loc.get('lon')
-    };
-  }),
   chartOptions: {
     title: {
       text: 'Locations'
@@ -23,7 +15,7 @@ export default Ember.Component.extend({
     },
   },
 
-  chartData: Ember.computed('locationData', function() {
+  chartData: Ember.computed('locations', function() {
     return [
       {
         // Use the gb-all map with no data as a basemap
@@ -36,7 +28,7 @@ export default Ember.Component.extend({
       {
         type: 'mappoint',
         name: 'Cities',
-        data: this.get('locationData')
+        data: this.get('locations')
       }
     ];
   })
