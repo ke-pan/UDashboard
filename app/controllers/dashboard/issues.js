@@ -6,14 +6,24 @@ export default Ember.Controller.extend({
   // queryParams: ['sort', 'dir'],
   sort: 'submissionAt',
   dir: 'desc',
-  search: 'x',
+  search: '',
   issues: Ember.computed('model', 'dir', 'sort', 'search', function() {
     let issues = this.get('model');
     let dir = this.get('dir');
     let sort = this.get('sort');
-    let sorted = _.sortBy(issues, sort);
-    if (dir === 'desc') { sorted = sorted.reverse(); }
-    return (sorted
+    let search = this.get('search');
+    let result = _.sortBy(issues, sort);
+    if (dir === 'desc') { result = result.reverse(); }
+    if (!Ember.isBlank(search)) {
+      result = _.filter(result, function(item) {
+        for (var k in item) {
+          if (item[k].indexOf(search) != -1) {
+            return true;
+          }
+        }
+      });
+    }
+    return (result
       .map(function(item) {
         let closedTime = item.closedAt ? moment(item.closedAt).format('YY-MM-DD, kk:mm') : '';
         return {
@@ -33,10 +43,6 @@ export default Ember.Controller.extend({
       let dir = this.get('dir') === 'desc' ? 'asc' : 'desc';
       this.set('sort', sort);
       this.set('dir', dir);
-    },
-    setSearch(text) {
-      console.log(text);
-      this.set('search', text);
     }
   }
 });
