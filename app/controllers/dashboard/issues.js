@@ -11,7 +11,7 @@ export default Ember.Controller.extend({
     let dir = this.get('dir');
     let sort = this.get('sort');
     let sorted = _.sortBy(issues, sort);
-    if (dir === 'desc') sorted = sorted.reverse();
+    if (dir === 'desc') { sorted = sorted.reverse(); }
     return (sorted
       .map(function(item) {
         let closedTime = item.closedAt ? moment(item.closedAt).format('YY-MM-DD, kk:mm') : '';
@@ -29,7 +29,9 @@ export default Ember.Controller.extend({
   }),
   actions: {
     setSort(sort) {
+      let dir = this.get('dir') === 'desc' ? 'asc' : 'desc';
       this.set('sort', sort);
+      this.set('dir', dir);
     }
   }
 });

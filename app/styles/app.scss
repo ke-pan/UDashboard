@@ -25,11 +25,12 @@
 
 .issue-table {
   font-size: 0.8rem;
-
   thead {
     font-weight: 200;
+    .sortable {
+      cursor: pointer;
+    }
   }
-
   td {
     padding: 0.5rem;
   }

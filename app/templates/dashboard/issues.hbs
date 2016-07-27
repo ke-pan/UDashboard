@@ -3,39 +3,38 @@
 <table class="table issue-table">
   <thead>
     <tr>
-      <td>
+      <td class="sortable" {{action "setSort" "submissionAt"}}>
         submission time
         {{#if (eq sort 'submissionAt')}}
           <i class={{if (eq dir "asc") "fa fa-sort-asc" "fa fa-sort-desc"}}></i>
         {{/if}}
-        {{action "setSort" "submissionAt"}}
       </td>
-      <td>
+      <td class="sortable" {{action "setSort" "customerName"}}>
         customer name
         {{#if (eq sort 'customerName')}}
           <i class={{if (eq dir "asc") "fa fa-sort-asc" "fa fa-sort-desc"}}></i>
         {{/if}}
       </td>
-      <td>
+      <td class="sortable" {{action "setSort" "customerEmail"}}>
         customer email
         {{#if (eq sort 'customerEmail')}}
           <i class={{if (eq dir "asc") "fa fa-sort-asc" "fa fa-sort-desc"}}></i>
         {{/if}}
       </td>
       <td> description </td>
-      <td>
+      <td class="sortable" {{action "setSort" "status"}}>
         status
         {{#if (eq sort 'status')}}
           <i class={{if (eq dir "asc") "fa fa-sort-asc" "fa fa-sort-desc"}}></i>
         {{/if}}
       </td>
-      <td>
+      <td class="sortable" {{action "setSort" "closedAt"}}>
         close time
         {{#if (eq sort 'closedAt')}}
           <i class={{if (eq dir "asc") "fa fa-sort-asc" "fa fa-sort-desc"}}></i>
         {{/if}}
       </td>
-      <td>
+      <td class="sortable" {{action "setSort" "employeeName"}}>
         employee name
         {{#if (eq sort 'employeeName')}}
           <i class={{if (eq dir "asc") "fa fa-sort-asc" "fa fa-sort-desc"}}></i>
