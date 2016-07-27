@@ -3,10 +3,11 @@ import moment from 'moment';
 import _ from 'lodash';
 
 export default Ember.Controller.extend({
-  queryParams: ['sort', 'dir'],
+  // queryParams: ['sort', 'dir'],
   sort: 'submissionAt',
   dir: 'desc',
-  issues: Ember.computed('model', 'dir', 'sort', function() {
+  search: 'x',
+  issues: Ember.computed('model', 'dir', 'sort', 'search', function() {
     let issues = this.get('model');
     let dir = this.get('dir');
     let sort = this.get('sort');
@@ -32,6 +33,10 @@ export default Ember.Controller.extend({
       let dir = this.get('dir') === 'desc' ? 'asc' : 'desc';
       this.set('sort', sort);
       this.set('dir', dir);
+    },
+    setSearch(text) {
+      console.log(text);
+      this.set('search', text);
     }
   }
 });
