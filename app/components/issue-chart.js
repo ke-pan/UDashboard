@@ -3,31 +3,7 @@ import Ember from 'ember';
 const { computed } = Ember;
 
 export default Ember.Component.extend({
-  padWithZero(value) {
-    if (String(value).length === 1) {
-      return `0${value}`;
-    } else {
-      return value;
-    }
-  },
-  seriesData: computed('period', 'issues', function() {
-    const issues = this.get('issues').toArray();
-    const dateData = this.get('period').split('-');
-    const year = dateData[0];
-    const month = dateData[1];
-    const daysInMonth = new Date(year, month, 0).getDate();
-    let labels = [];
-    let series = [];
-    for (var day=1; day<=daysInMonth; day++) {
-      const dateString = `${year}-${month}-${this.padWithZero(day)}`;
-      const issuesInDate = issues.filterBy('createdDate', dateString).length;
-      series.push(issuesInDate);
-      labels.push(day);
-    }
-    // console.log('series', series);
-    return {labels, series};
-  }),
-  chartOptions: computed('seriesData', function() {
+  chartOptions: computed('issues', function() {
     return {
       chart: {
         type: 'column'
@@ -36,7 +12,7 @@ export default Ember.Component.extend({
         text: 'Issues'
       },
       xAxis: {
-        categories: this.get('seriesData.labels')
+        categories: this.get('issues').map(issue => issue.month)
       },
       yAxis: {
         min: 1,
@@ -47,11 +23,12 @@ export default Ember.Component.extend({
       }
     };
   }),
-  chartData: computed('seriesData', function() {
+  chartData: computed('issues', function() {
+    console.log(this.get('issues'));
     return [
       {
         name: 'reported issues',
-        data: this.get('seriesData.series')
+        data: this.get('issues').map(issue => parseInt(issue.issueCount))
       }
     ];
   })

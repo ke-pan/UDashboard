@@ -1,24 +1,9 @@
 import Ember from 'ember';
-import moment from 'moment';
 
 const { computed } = Ember;
 
 export default Ember.Component.extend({
-  seriesData: computed('month', 'customers', function() {
-    const customers = this.get('customers').toArray();
-    let labels = [];
-    let series = [];
-    for(var i=0; i<12; i++) {
-      let month = moment(this.get('month'), 'YYYY-MM').subtract(i, "month").format("YYYY-MM");
-      console.log(customers.filterBy('createdMonth', month));
-      const customerInMonth = customers.filterBy('createdMonth', month).length;
-      labels.push(month);
-      series.push(customerInMonth);
-    }
-
-    return { labels: labels.reverse(), series: series.reverse() };
-  }),
-  chartOptions: computed('seriesData', function() {
+  chartOptions: computed('customers', function() {
     return {
       chart: {
         type: 'line'
@@ -27,7 +12,7 @@ export default Ember.Component.extend({
         text: 'Customers'
       },
       xAxis: {
-        categories: this.get('seriesData.labels')
+        categories: this.get('customers').map(customer => customer.month)
       },
       yAxis: {
         minTickInterval: 1,
@@ -37,11 +22,11 @@ export default Ember.Component.extend({
       }
     };
   }),
-  chartData: computed('seriesData', function() {
+  chartData: computed('customers', function() {
     return [
       {
         name: 'paying customers',
-        data: this.get('seriesData.series')
+        data: this.get('customers').map(customer => parseInt(customer.customerCount))
       }
     ];
   })
