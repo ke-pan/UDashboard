@@ -12,6 +12,12 @@ module.exports = function(defaults) {
     emberHighCharts: {
       includeHighCharts: true,
       includeModules: ['map']
+    },
+    fingerprint: {
+      exclude: [
+        'issues.json', 'locations.csv', 'opening_issue.json',
+        'monthly_customer_count.csv', 'monthly_issue_count.csv'],
+      prepend: 'https://subdomain.cloudfront.net/'
     }
   });
 
