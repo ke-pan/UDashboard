@@ -8,6 +8,22 @@ export default Ember.Route.extend({
       openingIssues: Ember.$.getJSON('/data/opening_issue.json')
     });
   },
+  setupController(controller, model) {
+    this._super(controller, model);
+    this.set('refreshing', true);
+    Ember.run.later(this, this.refresh, 3000);
+  },
+  refresh() {
+    this._super();
+    if (this.get('refreshing')) {
+      Ember.run.later(this, this.refresh, 3000);
+    }
+  },
+  actions: {
+    willTransition() {
+      this.set('refreshing', false);
+    }
+  },
   csv2json(csv) {
     var lines = csv.split("\n");
     var result = [];

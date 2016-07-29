@@ -24,7 +24,6 @@ export default Ember.Component.extend({
     };
   }),
   chartData: computed('issues', function() {
-    console.log(this.get('issues'));
     return [
       {
         name: 'reported issues',

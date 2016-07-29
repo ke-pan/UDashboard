@@ -5,6 +5,22 @@ export default Ember.Route.extend({
   model() {
     return Ember.$.get('/data/locations.csv').then(result => this.csv2json(result));
   },
+  setupController(controller, model) {
+    this._super(controller, model);
+    this.set('refreshing', true);
+    Ember.run.later(this, this.refresh, 3000);
+  },
+  refresh() {
+    this._super();
+    if (this.get('refreshing')) {
+      Ember.run.later(this, this.refresh, 3000);
+    }
+  },
+  actions: {
+    willTransition() {
+      this.set('refreshing', false);
+    }
+  },
   csv2json(csv) {
     var lines = csv.split("\n");
     var result = [];
