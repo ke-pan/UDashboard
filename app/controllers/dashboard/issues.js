@@ -1,6 +1,6 @@
 import Ember from 'ember';
 import moment from 'moment';
-import _ from 'lodash';
+// import _ from 'lodash';
 
 export default Ember.Controller.extend({
   // queryParams: ['sort', 'dir'],
