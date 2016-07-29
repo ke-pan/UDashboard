@@ -16,8 +16,8 @@ module.exports = function(defaults) {
     fingerprint: {
       exclude: [
         'issues.json', 'locations.csv', 'opening_issue.json',
-        'monthly_customer_count.csv', 'monthly_issue_count.csv'],
-      prepend: 'https://subdomain.cloudfront.net/'
+        'monthly_customer_count.csv', 'monthly_issue_count.csv'
+      ]
     }
   });
 
