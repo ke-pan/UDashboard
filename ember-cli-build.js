@@ -13,12 +13,12 @@ module.exports = function(defaults) {
       includeHighCharts: true,
       includeModules: ['map']
     },
-    fingerprint: {
-      exclude: [
-        'issues.json', 'locations.csv', 'opening_issue.json',
-        'monthly_customer_count.csv', 'monthly_issue_count.csv'
-      ]
-    }
+    // fingerprint: {
+    //   exclude: [
+    //     'issues.json', 'locations.csv', 'opening_issue.json',
+    //     'monthly_customer_count.csv', 'monthly_issue_count.csv'
+    //   ]
+    // }
   });
 
   // Use `app.import` to add additional libraries to the generated
