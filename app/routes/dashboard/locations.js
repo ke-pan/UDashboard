@@ -3,7 +3,7 @@ import Ember from 'ember';
 export default Ember.Route.extend({
   ajax: Ember.inject.service(),
   model() {
-    return Ember.$.get('/data/locations.csv').then(result => this.csv2json(result));
+    return Ember.$.get('data/locations.csv').then(result => this.csv2json(result));
   },
   setupController(controller, model) {
     this._super(controller, model);
