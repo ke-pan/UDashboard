@@ -35,6 +35,7 @@ module.exports = function(defaults) {
   // along with the exports of each module as its value.
 
   app.import('bower_components/proj4/dist/proj4.js');
+  app.import('bower_components/lodash/lodash.js');
 
   return app.toTree();
 };
