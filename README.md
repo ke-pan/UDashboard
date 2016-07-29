@@ -23,3 +23,7 @@ You will need the following things properly installed on your computer.
 
 * `ember server`
 * Visit [http://localhost:4200](http://localhost:4200).
+
+## Build / Deploy
+
+* `ember build`
