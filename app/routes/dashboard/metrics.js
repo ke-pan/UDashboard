@@ -1,7 +1,7 @@
 import Ember from 'ember';
 
 export default Ember.Route.extend({
-  model(params) {
+  model() {
     return Ember.RSVP.hash({
       issues: Ember.$.get('data/monthly_issue_count.csv').then(this.csv2json),
       customers: Ember.$.get('data/monthly_customer_count.csv').then(this.csv2json),

@@ -1,9 +1,8 @@
 import Ember from 'ember';
 import moment from 'moment';
-// import _ from 'lodash';
+/* globals _ */
 
 export default Ember.Controller.extend({
-  // queryParams: ['sort', 'dir'],
   sort: 'submissionAt',
   dir: 'desc',
   search: '',
@@ -17,7 +16,7 @@ export default Ember.Controller.extend({
     if (!Ember.isBlank(search)) {
       result = _.filter(result, function(item) {
         for (var k in item) {
-          if (item[k].indexOf(search) != -1) {
+          if (item[k].indexOf(search) !== -1) {
             return true;
           }
         }
