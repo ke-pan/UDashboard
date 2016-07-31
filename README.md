@@ -21,7 +21,7 @@ You will need the following things properly installed on your computer.
 
 ## Running / Development
 
-* `ember server`
+* `ember server` or `ember server --live-reload=false` if you want to test polling.
 * Visit [http://localhost:4200](http://localhost:4200).
 
 ## Build / Deploy
