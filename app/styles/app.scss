@@ -31,9 +31,22 @@
     .sortable {
       cursor: pointer;
     }
+    th {
+      padding: 0.5rem;
+      @media (max-width: map-get($breakpoints, 'medium')) {
+        display: none;
+      }
+    }
   }
   td {
     padding: 0.5rem;
+    @media (max-width: map-get($breakpoints, 'medium')) {
+      display: block;
+      &::before {
+        content: attr(data-th)": ";
+        font-weight: bold;
+      }
+    }
   }
 
 }

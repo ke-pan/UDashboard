@@ -4,55 +4,55 @@
 <table class="table issue-table">
   <thead>
     <tr>
-      <td class="sortable" {{action "setSort" "submissionAt"}}>
+      <th class="sortable" {{action "setSort" "submissionAt"}}>
         submission time
         {{#if (eq sort 'submissionAt')}}
           <i class={{if (eq dir "asc") "fa fa-sort-asc" "fa fa-sort-desc"}}></i>
         {{/if}}
-      </td>
-      <td class="sortable" {{action "setSort" "customerName"}}>
+      </th>
+      <th class="sortable" {{action "setSort" "customerName"}}>
         customer name
         {{#if (eq sort 'customerName')}}
           <i class={{if (eq dir "asc") "fa fa-sort-asc" "fa fa-sort-desc"}}></i>
         {{/if}}
-      </td>
-      <td class="sortable" {{action "setSort" "customerEmail"}}>
+      </th>
+      <th class="sortable" {{action "setSort" "customerEmail"}}>
         customer email
         {{#if (eq sort 'customerEmail')}}
           <i class={{if (eq dir "asc") "fa fa-sort-asc" "fa fa-sort-desc"}}></i>
         {{/if}}
-      </td>
-      <td> description </td>
-      <td class="sortable" {{action "setSort" "status"}}>
+      </th>
+      <th> description </th>
+      <th class="sortable" {{action "setSort" "status"}}>
         status
         {{#if (eq sort 'status')}}
           <i class={{if (eq dir "asc") "fa fa-sort-asc" "fa fa-sort-desc"}}></i>
         {{/if}}
-      </td>
-      <td class="sortable" {{action "setSort" "closedAt"}}>
+      </th>
+      <th class="sortable" {{action "setSort" "closedAt"}}>
         close time
         {{#if (eq sort 'closedAt')}}
           <i class={{if (eq dir "asc") "fa fa-sort-asc" "fa fa-sort-desc"}}></i>
         {{/if}}
-      </td>
-      <td class="sortable" {{action "setSort" "employeeName"}}>
+      </th>
+      <th class="sortable" {{action "setSort" "employeeName"}}>
         employee name
         {{#if (eq sort 'employeeName')}}
           <i class={{if (eq dir "asc") "fa fa-sort-asc" "fa fa-sort-desc"}}></i>
         {{/if}}
-      </td>
+      </th>
     </tr>
   </thead>
   <tbody>
     {{#each issues as |issue|}}
       <tr>
-        <td>{{issue.submissionTime}}</td>
-        <td>{{issue.customerName}}</td>
-        <td>{{issue.customerEmail}}</td>
-        <td>{{issue.description}}</td>
-        <td>{{issue.status}}</td>
-        <td>{{issue.closedTime}}</td>
-        <td>{{issue.employeeName}}</td>
+        <td data-th="submission time">{{issue.submissionTime}}</td>
+        <td data-th="customer name">{{issue.customerName}}</td>
+        <td data-th="customer email">{{issue.customerEmail}}</td>
+        <td data-th="description">{{issue.description}}</td>
+        <td data-th="status">{{issue.status}}</td>
+        <td data-th="close time">{{issue.closedTime}}</td>
+        <td data-th="employee name">{{issue.employeeName}}</td>
       </tr>
     {{/each}}
   </tbody>
